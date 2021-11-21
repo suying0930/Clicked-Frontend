@@ -23,4 +23,4 @@ movieService(app);
 const tweeterService = require('./services/tweets-service');
 tweeterService(app);
 
-app.listen(process.env.NODE_PORT ||4000);
+app.listen(4000);
