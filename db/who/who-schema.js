@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    "avatarIcon": String,
+    avatarIcon: String,
     userName: String,
     handle: String
 }, {collection: "who"});

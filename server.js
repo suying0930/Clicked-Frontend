@@ -27,6 +27,7 @@ tweeterService(app);
 const profileService = require('./services/profile-service');
 profileService(app);
 require('./movies/service')(app);
+require('./services/who-service')(app);
 
 app.listen(process.env.PORT || 4000)
 // app.listen(4000)
