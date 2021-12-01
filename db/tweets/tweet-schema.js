@@ -11,8 +11,9 @@ const schema = mongoose.Schema({
         image: String
     },
     time: String,
-    "logo-image": String,
-    "avatar-image": String,
+    logoImage: String,
+    avatarImage: String,
+    liked: {type: Boolean, defaultValue: false},
     stats: {
         comments: {type: Number, defaultValue: 0},
         retweets: {type: Number, defaultValue: 0},

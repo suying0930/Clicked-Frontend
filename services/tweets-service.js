@@ -64,9 +64,18 @@ module.exports = (app) => {
     const deleteTweet = (req, res) =>
         dao.deleteTweet(req.params.id)
             .then((status) => res.send(status));
-    const likeTweet = (req, res) =>
-        dao.updateTweet(req.params.id, req.body)
-            .then(status => res.send(status))
+    const likeTweet = (req, res) => {
+        const tweet = req.body;
+        if (tweet.liked) {
+            --tweet.stats.likes;
+        } else {
+            ++tweet.stats.likes;
+        }
+        tweet.liked = !tweet.liked;
+
+        dao.updateTweet(req.params.id, tweet)
+            .then(status => res.send(status));
+    }
 
     app.put('/api/tweets/:id/like', likeTweet);
     app.delete('/api/tweets/:id', deleteTweet);
