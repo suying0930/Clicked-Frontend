@@ -17,8 +17,9 @@ module.exports = (app) => {
     // }
 
     const findProfileById = (req, res) =>
-        dao.findProfileById(req.params.id)
-            .then(profile => res.json(profile));
+        dao.findProfileById()
+            .then(profiles => res.json(profiles));
+
     const updateProfile = (req, res) =>
         dao.updateProfile(req.params.id, req.body)
             .then(status => res.send(status));
